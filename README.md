@@ -1,5 +1,5 @@
 # chatgpt_clone_bot
 chat bot 
-everyone can usr this code 
+everyone can use this code 
 use there api key
 
