@@ -28,10 +28,7 @@ def generate_response():
         if not data or 'prompt' not in data:
             return jsonify({"error": "Invalid input, 'prompt' is required"}), 400
 
-        # Prepare request headers for Hugging Face API
-        # headers = {"Authorization": f"Bearer {hugging_face_key}"}
-        
-        # Call the Hugging Face LLM API with the user's input
+     
         prompt=data.get('prompt')
         inp = {
     "prompt": prompt,
@@ -48,16 +45,9 @@ def generate_response():
     input=inp
 )
        
-#=> "The number of parameters in a neural network can impact ...
 
-        # Check if the LLM API request was successful
         response=str("".join(response_out))
-        # if response.status_code != 200:
-        #     return jsonify({"error": "Failed to fetch response from gpt2 API", "details": response.json()}), 500
-
-        # Return the generated response from the LLM
-        # llm_response = response.json()
-        # generated_text = llm_response[0].get('generated_text', '').strip()
+       
         return  "<h1> {response}</h1>", 200
 
     except Exception as e:
