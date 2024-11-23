@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 import requests
 import replicate
+import api_key 
+
 
 
 app = Flask(__name__)
@@ -37,7 +39,7 @@ def generate_response():
     "max_new_tokens": 512,
     "prompt_template": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n{system_prompt}<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n{prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
 }
-        client=replicate.Client(api_token="r8_IOgomoVv7JAXHXRWaqCNxiKOFCaeFbU3TnFYT")
+        client=replicate.Client(api_token=api_key.api_key_token)
 
 
         response_out= client.run(
